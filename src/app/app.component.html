@@ -1,484 +1,119 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  .spacer {
-    flex: 1;
-  }
-
-  .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-  }
-
-  .toolbar img {
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 8px;
-  }
-
-  .toolbar #youtube-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo:hover,
-  .toolbar #youtube-logo:hover {
-    opacity: 0.8;
-  }
-
-  .content {
-    display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  svg.material-icons {
-    height: 24px;
-    width: auto;
-  }
-
-  svg.material-icons:not(:last-child) {
-    margin-right: 8px;
-  }
-
-  .card svg.material-icons path {
-    fill: #888;
-  }
-
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
-  }
-
-  .card {
-    all: unset;
-    border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
-    height: 40px;
-    width: 200px;
-    margin: 0 8px 16px;
-    padding: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease-in-out;
-    line-height: 24px;
-  }
-
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
-
-  .card.card-small {
-    height: 16px;
-    width: 168px;
-  }
-
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
-
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  }
-
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
-
-  .card.highlight-card {
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-  }
-
-  .card.card.highlight-card span {
-    margin-left: 60px;
-  }
-
-  svg#rocket {
-    width: 80px;
-    position: absolute;
-    left: -10px;
-    top: -24px;
-  }
-
-  svg#rocket-smoke {
-    height: calc(100vh - 95px);
-    position: absolute;
-    top: 10px;
-    right: 180px;
-    z-index: -10;
-  }
-
-  a,
-  a:visited,
-  a:hover {
-    color: #1976d2;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #125699;
-  }
-
-  .terminal {
-    position: relative;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 6px;
-    padding-top: 45px;
-    margin-top: 8px;
-    overflow: hidden;
-    background-color: rgb(15, 15, 16);
-  }
-
-  .terminal::before {
-    content: "\2022 \2022 \2022";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: rgb(58, 58, 58);
-    color: #c2c3c4;
-    width: 100%;
-    font-size: 2rem;
-    line-height: 0;
-    padding: 14px 0;
-    text-indent: 4px;
-  }
-
-  .terminal pre {
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-    color: white;
-    padding: 0 1rem 1rem;
-    margin: 0;
-  }
-
-  .circle-link {
-    height: 40px;
-    width: 40px;
-    border-radius: 40px;
-    margin: 8px;
-    background-color: white;
-    border: 1px solid #eeeeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: 1s ease-out;
-  }
-
-  .circle-link:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-  }
-
-  footer a {
-    display: flex;
-    align-items: center;
-  }
-
-  .github-star-badge {
-    color: #24292e;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    padding: 3px 10px;
-    border: 1px solid rgba(27,31,35,.2);
-    border-radius: 3px;
-    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
-    margin-left: 4px;
-    font-weight: 600;
-  }
-
-  .github-star-badge:hover {
-    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-    border-color: rgba(27,31,35,.35);
-    background-position: -.5em;
-  }
-
-  .github-star-badge .material-icons {
-    height: 16px;
-    width: 16px;
-    margin-right: 4px;
-  }
-
-  svg#clouds {
-    position: fixed;
-    bottom: -160px;
-    left: -230px;
-    z-index: -10;
-    width: 1920px;
-  }
-
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
-    .card-container > *:not(.circle-link) ,
-    .terminal {
-      width: 100%;
-    }
-
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
-
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
-
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
-    }
-  }
-
-  @media screen and (max-width: 575px) {
-    svg#rocket-smoke {
-      display: none;
-      visibility: hidden;
-    }
-  }
-</style>
-
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <img
-    width="40"
-    alt="Angular Logo"
-    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-  />
-  <span>Welcome</span>
-    <div class="spacer"></div>
-    <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
-      <svg id="twitter-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-        <rect width="400" height="400" fill="none"/>
-        <path d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23" fill="#fff"/>
-      </svg>
-    </a>
-    <a aria-label="Angular on YouTube" target="_blank" rel="noopener" href="https://youtube.com/angular" title="YouTube">
-      <svg id="youtube-logo" height="24" width="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
-        <path d="M0 0h24v24H0V0z" fill="none"/>
-        <path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/>
-      </svg>
-    </a>
-</div>
-
-<div class="content" role="main">
-
-  <!-- Highlight Card -->
-  <div class="card highlight-card card-small">
-
-    <svg id="rocket" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678" viewBox="0 0 101.678 101.678">
-      <title>Rocket Ship</title>
-      <g id="Group_83" data-name="Group 83" transform="translate(-141 -696)">
-        <circle id="Ellipse_8" data-name="Ellipse 8" cx="50.839" cy="50.839" r="50.839" transform="translate(141 696)" fill="#dd0031"/>
-        <g id="Group_47" data-name="Group 47" transform="translate(165.185 720.185)">
-          <path id="Path_33" data-name="Path 33" d="M3.4,42.615a3.084,3.084,0,0,0,3.553,3.553,21.419,21.419,0,0,0,12.215-6.107L9.511,30.4A21.419,21.419,0,0,0,3.4,42.615Z" transform="translate(0.371 3.363)" fill="#fff"/>
-          <path id="Path_34" data-name="Path 34" d="M53.3,3.221A3.09,3.09,0,0,0,50.081,0,48.227,48.227,0,0,0,18.322,13.437c-6-1.666-14.991-1.221-18.322,7.218A33.892,33.892,0,0,1,9.439,25.1l-.333.666a3.013,3.013,0,0,0,.555,3.553L23.985,43.641a2.9,2.9,0,0,0,3.553.555l.666-.333A33.892,33.892,0,0,1,32.647,53.3c8.55-3.664,8.884-12.326,7.218-18.322A48.227,48.227,0,0,0,53.3,3.221ZM34.424,9.772a6.439,6.439,0,1,1,9.106,9.106,6.368,6.368,0,0,1-9.106,0A6.467,6.467,0,0,1,34.424,9.772Z" transform="translate(0 0.005)" fill="#fff"/>
-        </g>
-      </g>
-    </svg>
-
-    <span>{{ title }} app is running!</span>
-
-    <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
-      <title>Rocket Ship Smoke</title>
-      <path id="Path_40" data-name="Path 40" d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z" transform="translate(-147.025 -140.939)" fill="#f5f5f5"/>
-    </svg>
-
-  </div>
-
-  <!-- Resources -->
-  <h2>Resources</h2>
-  <p>Here are some links to help you get started:</p>
-
-  <div class="card-container">
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/tutorial">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-      <span>Learn Angular</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/cli">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
-      <span>CLI Documentation</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://material.angular.io">
-      <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px" width="21.813" height="23.453" viewBox="0 0 21.813 23.453"><path d="M4099.584,972.736h0l-10.882,3.9,1.637,14.4,9.245,5.153,9.245-5.153,1.686-14.4Z" transform="translate(-4088.702 -972.736)" fill="#808080"/><path d="M4181.516,972.736v23.453l9.245-5.153,1.686-14.4Z" transform="translate(-4170.633 -972.736)" fill="#808080"/><path d="M4137.529,1076.127l-7.7-3.723,4.417-2.721,7.753,3.723Z" transform="translate(-4125.003 -1058.315)" fill="#ffe0b2"/><path d="M4137.529,1051.705l-7.7-3.723,4.417-2.721,7.753,3.723Z" transform="translate(-4125.003 -1036.757)" fill="#fff3e0"/><path d="M4137.529,1027.283l-7.7-3.723,4.417-2.721,7.753,3.723Z" transform="translate(-4125.003 -1015.199)" fill="#fff"/></svg>
-      <span>Angular Material</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://blog.angular.io/">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
-      <span>Angular Blog</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/devtools/">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M14.73,13.31C15.52,12.24,16,10.93,16,9.5C16,5.91,13.09,3,9.5,3S3,5.91,3,9.5C3,13.09,5.91,16,9.5,16 c1.43,0,2.74-0.48,3.81-1.27L19.59,21L21,19.59L14.73,13.31z M9.5,14C7.01,14,5,11.99,5,9.5S7.01,5,9.5,5S14,7.01,14,9.5 S11.99,14,9.5,14z"/><polygon points="10.29,8.44 9.5,6 8.71,8.44 6.25,8.44 8.26,10.03 7.49,12.5 9.5,10.97 11.51,12.5 10.74,10.03 12.75,8.44"/></g></g></svg>
-      <span>Angular DevTools</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-  </div>
-
-  <!-- Next Steps -->
-  <h2>Next Steps</h2>
-  <p>What do you want to do next with your app?</p>
-
-  <input type="hidden" #selection>
-
-  <div class="card-container">
-    <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>New Component</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'material'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Angular Material</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'pwa'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Add PWA Support</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'dependency'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Add Dependency</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'test'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Run and Watch Tests</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'build'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Build for Production</span>
-    </button>
-  </div>
-
-  <!-- Terminal -->
-  <div class="terminal" [ngSwitch]="selection.value">
-      <pre *ngSwitchDefault>ng generate component xyz</pre>
-      <pre *ngSwitchCase="'material'">ng add @angular/material</pre>
-      <pre *ngSwitchCase="'pwa'">ng add @angular/pwa</pre>
-      <pre *ngSwitchCase="'dependency'">ng add _____</pre>
-      <pre *ngSwitchCase="'test'">ng test</pre>
-      <pre *ngSwitchCase="'build'">ng build</pre>
-  </div>
-
-  <!-- Links -->
-  <div class="card-container">
-    <a class="circle-link" title="Find a Local Meetup" href="https://www.meetup.com/find/?keywords=angular" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24.607" height="23.447" viewBox="0 0 24.607 23.447">
-        <title>Meetup Logo</title>
-        <path id="logo--mSwarm" d="M21.221,14.95A4.393,4.393,0,0,1,17.6,19.281a4.452,4.452,0,0,1-.8.069c-.09,0-.125.035-.154.117a2.939,2.939,0,0,1-2.506,2.091,2.868,2.868,0,0,1-2.248-.624.168.168,0,0,0-.245-.005,3.926,3.926,0,0,1-2.589.741,4.015,4.015,0,0,1-3.7-3.347,2.7,2.7,0,0,1-.043-.38c0-.106-.042-.146-.143-.166a3.524,3.524,0,0,1-1.516-.69A3.623,3.623,0,0,1,2.23,14.557a3.66,3.66,0,0,1,1.077-3.085.138.138,0,0,0,.026-.2,3.348,3.348,0,0,1-.451-1.821,3.46,3.46,0,0,1,2.749-3.28.44.44,0,0,0,.355-.281,5.072,5.072,0,0,1,3.863-3,5.028,5.028,0,0,1,3.555.666.31.31,0,0,0,.271.03A4.5,4.5,0,0,1,18.3,4.7a4.4,4.4,0,0,1,1.334,2.751,3.658,3.658,0,0,1,.022.706.131.131,0,0,0,.1.157,2.432,2.432,0,0,1,1.574,1.645,2.464,2.464,0,0,1-.7,2.616c-.065.064-.051.1-.014.166A4.321,4.321,0,0,1,21.221,14.95ZM13.4,14.607a2.09,2.09,0,0,0,1.409,1.982,4.7,4.7,0,0,0,1.275.221,1.807,1.807,0,0,0,.9-.151.542.542,0,0,0,.321-.545.558.558,0,0,0-.359-.534,1.2,1.2,0,0,0-.254-.078c-.262-.047-.526-.086-.787-.138a.674.674,0,0,1-.617-.75,3.394,3.394,0,0,1,.218-1.109c.217-.658.509-1.286.79-1.918a15.609,15.609,0,0,0,.745-1.86,1.95,1.95,0,0,0,.06-1.073,1.286,1.286,0,0,0-1.051-1.033,1.977,1.977,0,0,0-1.521.2.339.339,0,0,1-.446-.042c-.1-.092-.2-.189-.307-.284a1.214,1.214,0,0,0-1.643-.061,7.563,7.563,0,0,1-.614.512A.588.588,0,0,1,10.883,8c-.215-.115-.437-.215-.659-.316a2.153,2.153,0,0,0-.695-.248A2.091,2.091,0,0,0,7.541,8.562a9.915,9.915,0,0,0-.405.986c-.559,1.545-1.015,3.123-1.487,4.7a1.528,1.528,0,0,0,.634,1.777,1.755,1.755,0,0,0,1.5.211,1.35,1.35,0,0,0,.824-.858c.543-1.281,1.032-2.584,1.55-3.875.142-.355.28-.712.432-1.064a.548.548,0,0,1,.851-.24.622.622,0,0,1,.185.539,2.161,2.161,0,0,1-.181.621c-.337.852-.68,1.7-1.018,2.552a2.564,2.564,0,0,0-.173.528.624.624,0,0,0,.333.71,1.073,1.073,0,0,0,.814.034,1.22,1.22,0,0,0,.657-.655q.758-1.488,1.511-2.978.35-.687.709-1.37a1.073,1.073,0,0,1,.357-.434.43.43,0,0,1,.463-.016.373.373,0,0,1,.153.387.7.7,0,0,1-.057.236c-.065.157-.127.316-.2.469-.42.883-.846,1.763-1.262,2.648A2.463,2.463,0,0,0,13.4,14.607Zm5.888,6.508a1.09,1.09,0,0,0-2.179.006,1.09,1.09,0,0,0,2.179-.006ZM1.028,12.139a1.038,1.038,0,1,0,.01-2.075,1.038,1.038,0,0,0-.01,2.075ZM13.782.528a1.027,1.027,0,1,0-.011,2.055A1.027,1.027,0,0,0,13.782.528ZM22.21,6.95a.882.882,0,0,0-1.763.011A.882.882,0,0,0,22.21,6.95ZM4.153,4.439a.785.785,0,1,0,.787-.78A.766.766,0,0,0,4.153,4.439Zm8.221,18.22a.676.676,0,1,0-.677.666A.671.671,0,0,0,12.374,22.658ZM22.872,12.2a.674.674,0,0,0-.665.665.656.656,0,0,0,.655.643.634.634,0,0,0,.655-.644A.654.654,0,0,0,22.872,12.2ZM7.171-.123A.546.546,0,0,0,6.613.43a.553.553,0,1,0,1.106,0A.539.539,0,0,0,7.171-.123ZM24.119,9.234a.507.507,0,0,0-.493.488.494.494,0,0,0,.494.494.48.48,0,0,0,.487-.483A.491.491,0,0,0,24.119,9.234Zm-19.454,9.7a.5.5,0,0,0-.488-.488.491.491,0,0,0-.487.5.483.483,0,0,0,.491.479A.49.49,0,0,0,4.665,18.936Z" transform="translate(0 0.123)" fill="#f64060"/>
-      </svg>
-    </a>
-
-    <a class="circle-link" title="Join the Conversation on Discord" href="https://discord.gg/angular" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 245 240">
-        <title>Discord Logo</title>
-        <path d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/>
-        <path d="M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z"/>
-      </svg>
+<div class="app-wrapper">
+<header class="container">
+  <div class="menu-left">
+    <a [routerLink]="['']">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 5L4 12L11 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 12H20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>        
     </a>
   </div>
-
-  <!-- Footer -->
-  <footer>
-      Love Angular?&nbsp;
-      <a href="https://github.com/angular/angular" target="_blank" rel="noopener"> Give our repo a star.
-        <div class="github-star-badge">
-            <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          Star
-        </div>
-      </a>
-      <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
-        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-      </a>
-  </footer>
-
-  <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
-    <title>Gray Clouds Background</title>
-    <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
-  </svg>
-
-</div>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <div class="menu-middle">
+    Ledius
+  </div>
+  <div class="menu-right">
+    <button (click)="isMenuOpen = !isMenuOpen">
+      <svg *ngIf="!isMenuOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 8C13.1 8 14 7.1 14 6C14 4.9 13.1 4 12 4C10.9 4 10 4.9 10 6C10 7.1 10.9 8 12 8ZM12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10ZM12 16C10.9 16 10 16.9 10 18C10 19.1 10.9 20 12 20C13.1 20 14 19.1 14 18C14 16.9 13.1 16 12 16Z" fill="white"/>
+      </svg>  
+      <svg *ngIf="isMenuOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 4L4 20M20 20L4 4L20 20Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>        
+    </button>
+  </div>
+</header>
+<menu [ngClass]="isMenuOpen ? 'isOpen' : ''">
+  <ul>
+    <li>
+      <button [routerLink]="['/']">
+        <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.04175 8.35213C8.04175 7.93792 7.70596 7.60213 7.29175 7.60213C6.87753 7.60213 6.54175 7.93792 6.54175 8.35213H8.04175ZM7.29175 10.9563H6.54175C6.54175 11.3705 6.87753 11.7063 7.29175 11.7063V10.9563ZM10.4167 11.7063C10.831 11.7063 11.1667 11.3705 11.1667 10.9563C11.1667 10.5421 10.831 10.2063 10.4167 10.2063V11.7063ZM16.9584 17.7271C16.9584 18.1413 17.2942 18.4771 17.7084 18.4771C18.1226 18.4771 18.4584 18.1413 18.4584 17.7271H16.9584ZM17.7084 15.123H18.4584C18.4584 14.7088 18.1226 14.373 17.7084 14.373V15.123ZM14.5834 14.373C14.1692 14.373 13.8334 14.7088 13.8334 15.123C13.8334 15.5372 14.1692 15.873 14.5834 15.873V14.373ZM16.0302 11.3529C16.2492 11.7045 16.7118 11.8119 17.0633 11.5929C17.4149 11.3738 17.5223 10.9113 17.3033 10.5597L16.0302 11.3529ZM14.5645 9.31276L14.2876 10.0098L14.5645 9.31276ZM11.51 8.90733L11.5854 9.65353L11.51 8.90733ZM8.72969 9.9028L9.13623 10.5331C9.14664 10.5263 9.15687 10.5194 9.16693 10.5122L8.72969 9.9028ZM6.88521 10.2001C6.53712 10.4246 6.43696 10.8888 6.66149 11.2369C6.88602 11.585 7.35021 11.6851 7.69829 11.4606L6.88521 10.2001ZM8.96998 14.7264C8.75095 14.3748 8.28839 14.2674 7.93682 14.4864C7.58526 14.7054 7.47782 15.168 7.69685 15.5196L8.96998 14.7264ZM10.4357 16.7665L10.7126 16.0695L10.4357 16.7665ZM16.2705 16.1765L15.8639 15.5462C15.8535 15.5529 15.8433 15.5599 15.8332 15.5671L16.2705 16.1765ZM18.115 15.8792C18.463 15.6547 18.5632 15.1905 18.3387 14.8424C18.1141 14.4943 17.65 14.3941 17.3019 14.6187L18.115 15.8792ZM6.54175 8.35213V10.9563H8.04175V8.35213H6.54175ZM7.29175 11.7063H10.4167V10.2063H7.29175V11.7063ZM18.4584 17.7271V15.123H16.9584V17.7271H18.4584ZM17.7084 14.373H14.5834V15.873H17.7084V14.373ZM17.3033 10.5597C16.7671 9.69908 15.8872 9.03128 14.8414 8.61576L14.2876 10.0098C15.102 10.3334 15.6977 10.8192 16.0302 11.3529L17.3033 10.5597ZM14.8414 8.61576C13.7931 8.19924 12.5996 8.04332 11.4345 8.16114L11.5854 9.65353C12.5251 9.5585 13.4756 9.68715 14.2876 10.0098L14.8414 8.61576ZM11.4345 8.16114C10.2705 8.27884 9.16557 8.66694 8.29245 9.29344L9.16693 10.5122C9.79805 10.0593 10.6446 9.74867 11.5854 9.65353L11.4345 8.16114ZM8.32315 9.27255L6.88521 10.2001L7.69829 11.4606L9.13623 10.5331L8.32315 9.27255ZM7.69685 15.5196C8.23304 16.3802 9.11296 17.048 10.1587 17.4635L10.7126 16.0695C9.89817 15.7459 9.30248 15.2601 8.96998 14.7264L7.69685 15.5196ZM10.1587 17.4635C11.207 17.88 12.4005 18.0359 13.5656 17.9181L13.4147 16.4257C12.475 16.5208 11.5245 16.3921 10.7126 16.0695L10.1587 17.4635ZM13.5656 17.9181C14.7296 17.8004 15.8346 17.4123 16.7077 16.7858L15.8332 15.5671C15.2021 16.02 14.3555 16.3306 13.4147 16.4257L13.5656 17.9181ZM16.677 16.8067L18.115 15.8792L17.3019 14.6187L15.8639 15.5462L16.677 16.8067ZM8.33341 5.4563H16.6667V3.9563H8.33341V5.4563ZM20.0834 8.87296V17.2063H21.5834V8.87296H20.0834ZM16.6667 20.623H8.33341V22.123H16.6667V20.623ZM4.91675 17.2063V8.87296H3.41675V17.2063H4.91675ZM8.33341 20.623C6.44644 20.623 4.91675 19.0933 4.91675 17.2063H3.41675C3.41675 19.9217 5.61801 22.123 8.33341 22.123V20.623ZM20.0834 17.2063C20.0834 19.0933 18.5537 20.623 16.6667 20.623V22.123C19.3821 22.123 21.5834 19.9217 21.5834 17.2063H20.0834ZM16.6667 5.4563C18.5537 5.4563 20.0834 6.98599 20.0834 8.87296H21.5834C21.5834 6.15757 19.3821 3.9563 16.6667 3.9563V5.4563ZM8.33341 3.9563C5.61801 3.9563 3.41675 6.15757 3.41675 8.87296H4.91675C4.91675 6.98599 6.44644 5.4563 8.33341 5.4563V3.9563Z" fill="white"/>
+        </svg>
+        Обмен   
+      </button>     
+    </li>
+    <li>
+      <button [routerLink]="['/deposit']">
+        <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.125 13.0397C3.125 18.2173 7.32233 22.4147 12.5 22.4147C17.6777 22.4147 21.875 18.2173 21.875 13.0397C21.875 7.862 17.6777 3.66467 12.5 3.66467M3.125 13.0397C3.125 7.862 7.32233 3.66467 12.5 3.66467M3.125 13.0397H12.5M12.5 3.66467V13.0397M12.5 13.0397L19.1203 19.66" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Депозит     
+      </button>    
+    </li>
+    <li>
+      <button [routerLink]="['/replenishment']">
+        <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.25 15.4147C5.83579 15.4147 5.5 15.7505 5.5 16.1647C5.5 16.5789 5.83579 16.9147 6.25 16.9147V15.4147ZM9.89583 16.9147C10.31 16.9147 10.6458 16.5789 10.6458 16.1647C10.6458 15.7505 10.31 15.4147 9.89583 15.4147V16.9147ZM5.20833 7.53967H19.7917V6.03967H5.20833V7.53967ZM21.125 8.87301V17.2063H22.625V8.87301H21.125ZM19.7917 18.5397H5.20833V20.0397H19.7917V18.5397ZM3.875 17.2063V8.87301H2.375V17.2063H3.875ZM5.20833 18.5397C4.47195 18.5397 3.875 17.9427 3.875 17.2063H2.375C2.375 18.7711 3.64353 20.0397 5.20833 20.0397V18.5397ZM21.125 17.2063C21.125 17.9427 20.528 18.5397 19.7917 18.5397V20.0397C21.3565 20.0397 22.625 18.7711 22.625 17.2063H21.125ZM19.7917 7.53967C20.528 7.53967 21.125 8.13663 21.125 8.87301H22.625C22.625 7.3082 21.3565 6.03967 19.7917 6.03967V7.53967ZM5.20833 6.03967C3.64353 6.03967 2.375 7.3082 2.375 8.87301H3.875C3.875 8.13663 4.47195 7.53967 5.20833 7.53967V6.03967ZM3.125 11.7063H21.875V10.2063H3.125V11.7063ZM6.25 16.9147H9.89583V15.4147H6.25V16.9147Z" fill="white"/>
+        </svg>
+        Реквизиты     
+      </button>    
+    </li>
+    <li>
+      <button [routerLink]="['/history']">
+        <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.25 6.78963C6.25 5.63904 7.18274 4.7063 8.33333 4.7063H16.6667C17.8173 4.7063 18.75 5.63904 18.75 6.78963V22.4146L12.5 16.1646L6.25 22.4146V6.78963Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        История      
+      </button>   
+    </li>
+  </ul>
+  <div class="line"></div>
+  <ul>
+    <li>
+      <button [routerLink]="['/']">
+        <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.8334 22.4147V20.3313C20.8334 18.0302 18.9679 16.1647 16.6667 16.1647H8.33341C6.03223 16.1647 4.16675 18.0302 4.16675 20.3313V22.4147M16.6667 7.83134C16.6667 10.1325 14.8013 11.998 12.5001 11.998C10.1989 11.998 8.33341 10.1325 8.33341 7.83134C8.33341 5.53015 10.1989 3.66467 12.5001 3.66467C14.8013 3.66467 16.6667 5.53015 16.6667 7.83134Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Профиль           
+      </button>  
+    </li>
+    <li>
+      <button class="exit" [routerLink]="['/']">
+        <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.5833 4.7063L18.75 4.7063C19.9006 4.7063 20.8333 5.63904 20.8333 6.78963V19.2896C20.8333 20.4402 19.9006 21.373 18.75 21.373H14.5833M3.125 13.0396L15.625 13.0396M3.125 13.0396L7.29167 8.87297M3.125 13.0396L7.29167 17.2063" stroke="#D73D3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Выйти        
+      </button>     
+    </li>
+  </ul>
+</menu>
 
 <router-outlet></router-outlet>
+
+<nav class="container">
+  <ul>
+    <li>
+      <button [routerLinkActive]="'is-active'" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['']">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.25 9.375C9.25 9.09886 9.02614 8.875 8.75 8.875C8.47386 8.875 8.25 9.09886 8.25 9.375H9.25ZM8.75 12.5H8.25C8.25 12.7761 8.47386 13 8.75 13V12.5ZM12.5 13C12.7761 13 13 12.7761 13 12.5C13 12.2239 12.7761 12 12.5 12V13ZM20.75 20.625C20.75 20.9011 20.9739 21.125 21.25 21.125C21.5261 21.125 21.75 20.9011 21.75 20.625H20.75ZM21.25 17.5H21.75C21.75 17.2239 21.5261 17 21.25 17V17.5ZM17.5 17C17.2239 17 17 17.2239 17 17.5C17 17.7761 17.2239 18 17.5 18V17ZM19.5756 12.7644C19.7216 12.9988 20.03 13.0704 20.2644 12.9244C20.4988 12.7784 20.5704 12.47 20.4244 12.2356L19.5756 12.7644ZM17.4773 10.5278L17.2927 10.9924L17.4773 10.5278ZM13.8119 10.0412L13.8622 10.5387L13.8119 10.0412ZM10.4755 11.2358L10.7466 11.656C10.7535 11.6515 10.7603 11.6469 10.767 11.642L10.4755 11.2358ZM8.47897 11.9287C8.24692 12.0784 8.18014 12.3878 8.32983 12.6199C8.47951 12.8519 8.78897 12.9187 9.02103 12.769L8.47897 11.9287ZM10.4244 17.2356C10.2784 17.0012 9.96998 16.9296 9.7356 17.0756C9.50123 17.2216 9.4296 17.53 9.57562 17.7644L10.4244 17.2356ZM12.5227 19.4722L12.7073 19.0076L12.5227 19.4722ZM19.5245 18.7642L19.2534 18.344C19.2465 18.3485 19.2397 18.3531 19.233 18.358L19.5245 18.7642ZM21.521 18.0713C21.7531 17.9216 21.8199 17.6122 21.6702 17.3801C21.5205 17.1481 21.211 17.0813 20.979 17.231L21.521 18.0713ZM8.25 9.375V12.5H9.25V9.375H8.25ZM8.75 13H12.5V12H8.75V13ZM21.75 20.625V17.5H20.75V20.625H21.75ZM21.25 17H17.5V18H21.25V17ZM20.4244 12.2356C19.8353 11.29 18.8552 10.5372 17.6619 10.0631L17.2927 10.9924C18.3317 11.4053 19.1223 12.0368 19.5756 12.7644L20.4244 12.2356ZM17.6619 10.0631C16.467 9.58831 15.0996 9.40847 13.7616 9.54378L13.8622 10.5387C15.0499 10.4186 16.2553 10.5802 17.2927 10.9924L17.6619 10.0631ZM13.7616 9.54378C12.4243 9.67901 11.1672 10.1241 10.184 10.8296L10.767 11.642C11.5889 11.0523 12.6737 10.6589 13.8622 10.5387L13.7616 9.54378ZM10.2045 10.8156L8.47897 11.9287L9.02103 12.769L10.7466 11.656L10.2045 10.8156ZM9.57562 17.7644C10.1647 18.71 11.1448 19.4628 12.3381 19.9369L12.7073 19.0076C11.6683 18.5947 10.8777 17.9632 10.4244 17.2356L9.57562 17.7644ZM12.3381 19.9369C13.533 20.4117 14.9004 20.5915 16.2384 20.4562L16.1378 19.4613C14.9501 19.5814 13.7447 19.4197 12.7073 19.0076L12.3381 19.9369ZM16.2384 20.4562C17.5757 20.321 18.8328 19.8759 19.816 19.1704L19.233 18.358C18.4111 18.9477 17.3263 19.3411 16.1378 19.4613L16.2384 20.4562ZM19.7955 19.1844L21.521 18.0713L20.979 17.231L19.2534 18.344L19.7955 19.1844ZM10 5.5H20V4.5H10V5.5ZM24.5 10V20H25.5V10H24.5ZM20 24.5H10V25.5H20V24.5ZM5.5 20V10H4.5V20H5.5ZM10 24.5C7.51472 24.5 5.5 22.4853 5.5 20H4.5C4.5 23.0376 6.96243 25.5 10 25.5V24.5ZM24.5 20C24.5 22.4853 22.4853 24.5 20 24.5V25.5C23.0376 25.5 25.5 23.0376 25.5 20H24.5ZM20 5.5C22.4853 5.5 24.5 7.51472 24.5 10H25.5C25.5 6.96243 23.0376 4.5 20 4.5V5.5ZM10 4.5C6.96243 4.5 4.5 6.96243 4.5 10H5.5C5.5 7.51472 7.51472 5.5 10 5.5V4.5Z" fill="#858EE3"/>
+        </svg>
+        Обмен
+      </button>
+    </li>
+    <li>
+      <button [routerLinkActive]="'is-active'" [routerLink]="['/deposit']">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.75 15C3.75 21.2132 8.7868 26.25 15 26.25C21.2132 26.25 26.25 21.2132 26.25 15C26.25 8.7868 21.2132 3.75 15 3.75M3.75 15C3.75 8.7868 8.7868 3.75 15 3.75M3.75 15H15M15 3.75V15M15 15L22.9443 22.9443" stroke="#858EE3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>          
+        Депозит
+      </button>
+    </li>
+    <li>
+      <button [routerLinkActive]="'is-active'" [routerLink]="['/replenishment']">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 18.25C7.22386 18.25 7 18.4739 7 18.75C7 19.0261 7.22386 19.25 7.5 19.25V18.25ZM11.875 19.25C12.1511 19.25 12.375 19.0261 12.375 18.75C12.375 18.4739 12.1511 18.25 11.875 18.25V19.25ZM6.25 8H23.75V7H6.25V8ZM25.75 10V20H26.75V10H25.75ZM23.75 22H6.25V23H23.75V22ZM4.25 20V10H3.25V20H4.25ZM6.25 22C5.14543 22 4.25 21.1046 4.25 20H3.25C3.25 21.6569 4.59315 23 6.25 23V22ZM25.75 20C25.75 21.1046 24.8546 22 23.75 22V23C25.4069 23 26.75 21.6569 26.75 20H25.75ZM23.75 8C24.8546 8 25.75 8.89543 25.75 10H26.75C26.75 8.34315 25.4069 7 23.75 7V8ZM6.25 7C4.59315 7 3.25 8.34315 3.25 10H4.25C4.25 8.89543 5.14543 8 6.25 8V7ZM3.75 13H26.25V12H3.75V13ZM7.5 19.25H11.875V18.25H7.5V19.25Z" fill="#858EE3"/>
+        </svg>  
+        Реквизиты
+      </button>
+    </li>
+    <li>
+      <button [routerLinkActive]="'is-active'" [routerLink]="['/history']">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 7.5C7.5 6.11929 8.61929 5 10 5H20C21.3807 5 22.5 6.11929 22.5 7.5V26.25L15 18.75L7.5 26.25V7.5Z" stroke="#858EE3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>          
+        История
+      </button>
+    </li>
+  </ul>
+</nav>
+</div>

@@ -1,0 +1,23 @@
+<div class="overflow-wrapper">
+    <div class="overflow-wrapper-inner container">
+        <form action="">
+            <label for="card">Выберите реквизиты</label>
+            <ng-select [searchable]="false" [clearable]="false" class="custom" name="card" [(ngModel)]="selectedCard">
+                <ng-option *ngFor="let card of cards" [value]="card.id">{{card.number | creditDebitPipe}}</ng-option>
+            </ng-select>
+            <label for="LDS">Введите количество продаваемых LDS токенов</label>
+            <div class="input-with-LDS-icon">
+                <picture>
+                    <img src="../../assets/ledius.png" alt="">
+                </picture>
+                <input type="text" value='{{balance}} LDS' name="LDS" placeholder="">
+            </div>
+            <label for="RUB">Сумма в RUB после продажи составит:</label>
+            <input name="RUB" type="text" value="{{LDStoRUBTransform()}}">
+
+            <alert status={{status}} text="Заявка будет обработана в течение 10 рабочих дней"></alert>
+            
+            <button (click)="handleSubmit($event)" class="filled">Продать</button>
+        </form>
+    </div>
+</div>

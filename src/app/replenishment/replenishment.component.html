@@ -1,0 +1,21 @@
+<div class="overflow-wrapper">
+    <div class="overflow-wrapper-inner container">
+        <form action="">
+            <label for="ccn">Введите номер карты</label>
+            <input name="ccn" maxlength="19" placeholder="Номер карты" inputmode="numeric" type="card">
+            <label for="secondName">Введите Фамилию</label>
+            <input name="secondName" placeholder="Иванов" type="text">
+            <label for="firstName">Введите Имя</label>
+            <input name="firstName" placeholder="Иван" type="text">
+            <label for="patronymic">Введите Отчество</label>
+            <input name="patronymic" placeholder="Иван" type="text">
+            <label for="bank">Выберите свой банк</label>
+            
+            <ng-select [searchable]="false" [clearable]="false" class="custom" name="bank" [(ngModel)]="selectedBank">
+                <ng-option *ngFor="let bank of banks" [value]="bank.id">{{bank.name}}</ng-option>
+            </ng-select>
+            
+            <button class="filled">Создать</button>
+        </form>
+    </div>
+</div>

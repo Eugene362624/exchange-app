@@ -1,0 +1,44 @@
+@import '../variables';
+
+.qr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 25px;
+    margin-bottom: 41px;
+    picture, img {
+        width: 195px;
+        height: 195px;
+    }
+}
+.wallet-info {
+    font-family: $Montserrat;
+    label {
+        font-size: 12px;
+        margin-bottom: 10px;
+        display: block;
+    }
+    .wallet-info--input {    
+        background: $backgroundBlackColor;
+        border: none;
+        border-radius: 10px;
+        padding: 15px 25px;
+        display: flex;
+        align-items: center;
+        span {
+            height: 100%;
+            width: 100%;
+            margin-right: 60px;
+            color: $lightFontColor;
+            word-break: break-all;
+        }
+        button {
+            background: transparent;
+            border: none;
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+@import '../variables';
+
+button.outlined {
+    align-self: center;
+    padding: 12px 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    svg {
+        margin-left: 10px;
+    }
+}
+
+.deposit-items-wrapper {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    width: 100%;
+}
+
+.deposit-item {
+    font-family: $Montserrat;
+    background: $backgroundBlackColor;
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 10px;
+    .item-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        .item-top--left {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            picture {
+                margin-right: 8px;
+            }
+        }
+
+        .item-status {
+            font-size: 10px;
+        }
+    }
+    
+    .item-bottom {
+        p {
+            font-size: 12px;
+        }
+        span {
+            font-size: 16px;
+            display: flex;
+            margin: 2px 0 11px 0;
+            &:last-child {
+                margin-bottom: 0px;
+            }
+        }
+    }
+}
+
+picture, img {
+    width: 26px;
+    height: 26px;
+}
+
+form {
+    width: 100%;
+}
+
+.overflow-wrapper-inner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

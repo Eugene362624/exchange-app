@@ -1,0 +1,36 @@
+<div class="overflow-wrapper">
+    <div class="overflow-wrapper-inner">
+        <span class="page-label">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.66669 3.33333V13.0573C2.66669 13.6507 3.38469 13.9487 3.80469 13.5287L8.00002 9.33333L12.1954 13.5287C12.6154 13.9487 13.3334 13.6513 13.3334 13.0573V3.33333C13.3334 2.97971 13.1929 2.64057 12.9428 2.39052C12.6928 2.14048 12.3536 2 12 2H4.00002C3.6464 2 3.30726 2.14048 3.05721 2.39052C2.80716 2.64057 2.66669 2.97971 2.66669 3.33333V3.33333Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            История транзакций        
+        </span>
+        <div *ngFor="let item of history" class="history-element container">
+            <picture class="element-image">
+                <img src="./assets/ledius.png" alt="">
+            </picture>
+            <div class="element-info">
+                <div class="transaction-cost">
+                    <p>
+                        <span class="cost-LDS">{{item.LDS}} LDS</span>
+                        <svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.125 1.75004L4.95833 0.583374M6.125 1.75004H0.875H6.125ZM6.125 1.75004L4.95833 2.91671L6.125 1.75004Z" stroke="#65D73D" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M0.875 5.25004L2.04167 4.08337M0.875 5.25004H6.125H0.875ZM0.875 5.25004L2.04167 6.41671L0.875 5.25004Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg> 
+                        <span class="cost-RUB">{{item.rubles | number}} ₽</span>
+                    </p>
+                </div>
+                <span class="transaction-id">
+                    id транзакции: {{item.transactionId}}
+                </span>
+                <span class="transaction-date">
+                    {{item.date | date: 'dd.MM.yyyy'}}
+                </span>
+            </div>
+            <div [ngStyle]="{'color': item.status === 'Принято' ? '#65D73D' : item.status === 'В обработке' ? '#D7993D' : '#D73D3D'}" class="element-status">
+                {{item.status}}
+            </div>
+        </div>
+    </div>
+</div>

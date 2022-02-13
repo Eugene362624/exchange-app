@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'exchange';
+  isMenuOpen: boolean = false
+  balance = 0.038726158947362819
 }

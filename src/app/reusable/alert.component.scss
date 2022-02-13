@@ -1,0 +1,26 @@
+@import '../variables';
+
+.status-alert {
+    width: 100%;
+    border: 1px solid $successFontColor;
+    padding: 14px 25px;
+    border-radius: 10px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    p {
+        color: $successFontColor;
+        font-size: 14px;
+    }
+    svg {
+        flex: none;
+        margin-left: 10px;
+    }
+    &.fail {
+        p {
+            color: $errorFontColor;
+        }
+        border-color: $errorFontColor;
+    }
+}

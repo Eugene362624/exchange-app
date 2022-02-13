@@ -1,0 +1,40 @@
+<div class="overflow-wrapper">
+    <div class="overflow-wrapper-inner container">
+        <form>
+            <ng-select [searchable]="false" [clearable]="false" class="custom dark" name="pediod" [(ngModel)]="selectedDepositFilter">
+                <ng-option *ngFor="let depositFilter of depositsFilter" [value]="depositFilter.id">{{depositFilter.name}}</ng-option>
+            </ng-select>
+        </form>
+
+        <div class="deposit-items-wrapper">
+            <div *ngFor="let item of deposits" class="deposit-item">
+                <div class="item-top">
+                    <div class="item-top--left">
+                        <picture>
+                            <img src="assets/ledius.png" alt="">
+                        </picture>
+                        <span>{{item.startSum}} LDS</span>
+                    </div>
+                    <span [ngStyle]="{'color' : item.status == 'Открыт' ? '#65D73D' : '#D73D3D'}" class="item-status">{{item.status}}</span>
+                </div>
+                <div class="item-bottom">
+                    <p>Начальная сумма</p>
+                    <span>{{item.startSum}} LDS</span>
+                    <p>Профит</p>
+                    <span>{{item.profit}} LDS ({{item.percentage}}%)</span>
+                    <p>Дата создания</p>
+                    <span>{{item.dateStart | date: 'dd.MM.yyyy'}}</span>
+                    <p>Дата закрытия</p>
+                    <span>{{item.dateFinish | date: 'dd.MM.yyyy'}}</span>
+                </div>
+            </div>
+        </div>
+
+        <button [routerLink]="['/new-deposit']" class="outlined">
+            Создать депозит
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.50004 8.50004H2.83337M8.50004 14.1667V8.50004V14.1667ZM8.50004 8.50004V2.83337V8.50004ZM8.50004 8.50004H14.1667H8.50004Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>                
+        </button>
+    </div>
+</div>

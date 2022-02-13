@@ -1,0 +1,13 @@
+form {
+    button {
+        border-radius: 10px;
+        &:last-child{
+            margin-top: 20px;
+        }
+        svg {
+            min-width: 18px;
+            min-height: 18px;
+            margin-left: 10px;
+        }
+    }
+}

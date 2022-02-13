@@ -1,0 +1,29 @@
+<div class="overflow-wrapper">
+    <div class="overflow-wrapper-inner container">
+        <form action="">
+            <label for="LDS">Введите сумму депозита</label>
+            <div class="input-with-LDS-icon">
+                <picture>
+                    <img src="../../assets/ledius.png" alt="">
+                </picture>
+                <input type="text" value='{{balance}} LDS' name="LDS" placeholder="">
+            </div>
+            <label for="period">Выберите период депозита</label>
+
+            <ng-select [searchable]="false" [clearable]="false" class="custom" name="pediod" [(ngModel)]="selectedPeriod">
+                <ng-option *ngFor="let period of periods" [value]="period.id">{{period.value}} дней</ng-option>
+            </ng-select>
+            
+            <label for="expected">Ожидаемая сумма</label>
+            <div class="input-with-LDS-icon">
+                <picture>
+                    <img src="../../assets/ledius.png" alt="">
+                </picture>
+                <input type="text" value='{{balance}} LDS' readonly name="expected" placeholder="">
+            </div>
+            <alert status={{status.type}} text={{status.text}}></alert>
+            
+            <button (click)="handleSubmit($event)" class="filled">Создать депозит</button>
+        </form>
+    </div>
+</div>

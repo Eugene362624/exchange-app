@@ -1,1 +1,214 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import './app/variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    color: $lightFontColor;
+}
+
+body {
+    background: #2E2E2E;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.line {
+    width: 100%;
+    border-top: 1px solid #8D8D8D;
+}
+
+.container {
+    padding: 0 22px 0 22px;
+}
+
+button.outlined {
+    border-radius: 5px;
+    border: 1px solid $buttonColor;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: $Montserrat;
+}
+
+button.filled {
+    border-radius: 5px;
+    border: 1px solid $buttonColor;
+    background: $buttonColor;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    font-family: $Montserrat;
+}
+
+.overflow-wrapper {
+    max-height: calc(100vh - 57px);
+    height: calc(100vh - 57px);
+    padding-bottom: 82px;
+}
+
+.overflow-wrapper-inner {
+    overflow-y: auto;
+    height: 100%;
+    padding-top: 16px;
+}
+
+form {
+    font-family: $Montserrat;
+
+    input, select {
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+        padding: 15px 25px;
+        font-weight: 600;
+        color: $darkFontColor;
+        font-family: $Montserrat;
+        option {
+            color: $darkFontColor;
+            font-weight: 600;
+        }
+    }
+    
+    label {
+        margin-bottom: 10px;
+        font-size: 12px;
+        display: flex;
+        margin-top: 15px;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    button {
+        margin-top: 25px;
+        padding: 13px;
+        width: 100%;
+        border-radius: 10px;
+    }
+}
+
+
+.input-with-LDS-icon {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    input {
+        font-family: $Montserrat;
+        padding-left: 54px;
+    }
+    picture {
+        width: 19px;
+        height: 19px;
+        object-fit: cover;
+        position: absolute;
+        left: 25px;
+        img {
+            width: 19px;
+            height: 19px;
+        }
+    }
+}
+
+// ng-select custom
+.ng-select.custom {
+    height: 46px;
+    color: $darkFontColor;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    &.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+        border-color: unset;
+        box-shadow: none;
+    }
+    .ng-dropdown-panel {
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        padding: 0 25px;
+        border-top: unset;
+        .ng-dropdown-panel-items .ng-option.ng-option-selected, .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked {
+            background: unset;
+        }
+        .ng-option {
+            padding: 10px 0px;
+            &:first-child {
+                border-top: 1px solid $darkFontColor;
+            }
+            &:last-child {
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+            span {
+                font-size: 14px;
+                color: $darkFontColor !important;
+            }
+        }
+    }
+    .ng-select-container {            
+        min-height: 0px;
+        border-radius: 0;
+        border-radius: 10px;
+        height: 100%;
+        .ng-arrow-wrapper {
+            padding-right: 35px;
+        }
+        .ng-value-container {
+            padding: 15px 25px;
+            * {
+                color: $darkFontColor;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+    }
+    &.dark {
+        background: #2E2E2E !important;
+        color: $lightFontColor;
+        border: none;
+        &.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+            border: 1px solid $buttonColor;
+        }
+        .ng-select-container {
+            background: #2E2E2E;
+            border: 1px solid $buttonColor;
+            .ng-value-container {
+                * {
+                    color: $lightFontColor;
+                }
+            }
+        }
+        .ng-dropdown-panel {
+            background-color: #2E2E2E !important;
+        }
+        .ng-dropdown-panel {
+            border: 1px solid $buttonColor;
+            border-top: unset;
+            .ng-option {
+                background-color: #2E2E2E;
+                &:first-child {
+                    border-top: 1px solid $darkFontColor;
+                }
+                span {
+                    color: $lightFontColor !important;
+                }
+            }
+        }
+    }
+}

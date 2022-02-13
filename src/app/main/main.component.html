@@ -1,0 +1,151 @@
+<div class="overflow-wrapper">
+    <div class="overflow-wrapper-inner">
+        <div class="profile-info container">
+            <div class="row">
+                <div class="profile-info-left">
+                    <picture>
+                        <img src="assets/ledius.png" alt="">
+                    </picture>
+                    <div class="column">
+                        <span>{{balance}} LDS</span>
+                        <p>id: {{id}}</p>
+                    </div>
+                </div>
+                <button class="scan-qr">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.25 7.5H8.75C8.41848 7.5 8.10054 7.6317 7.86612 7.86612C7.6317 8.10054 7.5 8.41848 7.5 8.75V11.25" stroke="#4A59E9" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18.75 7.5H21.25C21.5815 7.5 21.8995 7.6317 22.1339 7.86612C22.3683 8.10054 22.5 8.41848 22.5 8.75V11.25" stroke="#4A59E9" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22.5 18.75V21.25C22.5 21.5815 22.3683 21.8995 22.1339 22.1339C21.8995 22.3683 21.5815 22.5 21.25 22.5H18.75" stroke="#4A59E9" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11.25 22.5H8.75C8.41848 22.5 8.10054 22.3683 7.86612 22.1339C7.6317 21.8995 7.5 21.5815 7.5 21.25V18.75" stroke="#4A59E9" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7.5 15H22.5" stroke="#4A59E9" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                                                
+                </button>
+            </div>
+            <div class="line"></div>
+            <div class="profile-buttons row">
+                <button [routerLink]="['/top-up']" class="filled">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.9197 7.45343H15.152V3.92216C15.152 3.07556 14.4633 2.38683 13.6167 2.38683H12.577L11.513 0.473822C11.3508 0.181464 11.0422 0 10.7076 0C10.5516 0 10.3968 0.0402297 10.2602 0.116055L6.17679 2.38679H1.61564C0.769053 2.38679 0.0803223 3.07552 0.0803223 3.92211V14.4646C0.0803223 15.3112 0.769053 16 1.61564 16H13.6167C14.4633 16 15.152 15.3112 15.152 14.4646V11.3685H15.9197V7.45343ZM13.6167 3.00093C14.0896 3.00093 14.4759 3.36018 14.5278 3.81986H13.3738L12.9187 3.00093H13.6167ZM10.5589 0.652801C10.7029 0.572055 10.8967 0.628529 10.9762 0.771961L12.6712 3.81958H4.86379L10.5589 0.652801ZM14.5379 14.4646C14.5379 14.9725 14.1245 15.3859 13.6167 15.3859H1.61564C1.10776 15.3859 0.694422 14.9725 0.694422 14.4646V3.92216C0.694422 3.41427 1.10776 3.00093 1.61564 3.00093H5.07258L3.5999 3.81991H1.80757C1.63777 3.81991 1.5005 3.95746 1.5005 4.12698C1.5005 4.2965 1.63777 4.43406 1.80757 4.43406H2.49539H13.7153H14.5379V7.45372H12.2923C11.2495 7.45372 10.4008 8.30246 10.4008 9.34523V9.47729C10.4008 10.5201 11.2496 11.3688 12.2923 11.3688H14.5379V14.4646ZM15.3055 10.7544H15.152H12.2923C11.5879 10.7544 11.0149 10.1814 11.0149 9.47696V9.3449C11.0149 8.6405 11.5879 8.06749 12.2923 8.06749H15.152H15.3055V10.7544ZM13.2329 9.43616C13.2329 9.81079 12.9295 10.1141 12.5549 10.1141C12.1802 10.1141 11.8769 9.81074 11.8769 9.43616C11.8769 9.06157 12.1803 8.75818 12.5549 8.75818C12.9295 8.75813 13.2329 9.06181 13.2329 9.43616Z" fill="white"/>
+                    </svg>
+                    Пополнить    
+                </button>
+                <button [routerLink]="['/withdrawal']" class="outlined">
+                    Вывести
+                </button>
+            </div>
+        
+        </div>
+        <div class="buy-wrapper container column">
+            <div class="buy-label row">
+                <span>Купить</span>
+                <a [routerLink]="['/history']">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.66663 3.33333V13.0573C2.66663 13.6507 3.38463 13.9487 3.80463 13.5287L7.99996 9.33333L12.1953 13.5287C12.6153 13.9487 13.3333 13.6513 13.3333 13.0573V3.33333C13.3333 2.97971 13.1928 2.64057 12.9428 2.39052C12.6927 2.14048 12.3536 2 12 2H3.99996C3.64634 2 3.3072 2.14048 3.05715 2.39052C2.8071 2.64057 2.66663 2.97971 2.66663 3.33333V3.33333Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    История    
+                </a>
+            </div>
+        
+            <div *ngFor="let item of getElementsToBuyPerPage()" class="buy-element">
+                <div class="row">
+                    <picture>
+                        <img src="assets/ledius.png" alt="LDS">
+                    </picture>
+                    <span>{{item.costInLDS}} LDS</span>
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.75 2.50004L7.08333 0.833374M8.75 2.50004H1.25H8.75ZM8.75 2.50004L7.08333 4.16671L8.75 2.50004Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M1.25 7.50004L2.91667 5.83337M1.25 7.50004H8.75H1.25ZM1.25 7.50004L2.91667 9.16671L1.25 7.50004Z" stroke="#65D73D" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>   
+                </div>
+                <button class="filled">
+                    <div class="buy-element-left">
+                    {{item.costInRUB}} ₽
+                    </div>
+                    <div class="buy-element-right">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 7C2 6.46957 2.21071 5.96086 2.58579 5.58579C2.96086 5.21071 3.46957 5 4 5H20C20.5304 5 21.0391 5.21071 21.4142 5.58579C21.7893 5.96086 22 6.46957 22 7V17C22 17.5304 21.7893 18.0391 21.4142 18.4142C21.0391 18.7893 20.5304 19 20 19H4C3.46957 19 2.96086 18.7893 2.58579 18.4142C2.21071 18.0391 2 17.5304 2 17V7Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 9C3.06087 9 4.07828 8.57857 4.82843 7.82843C5.57857 7.07828 6 6.06087 6 5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M18 19C18 17.9391 18.4214 16.9217 19.1716 16.1716C19.9217 15.4214 20.9391 15 22 15" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                        
+                        Оплатить          
+                    </div> 
+                </button>     
+            </div>
+
+            <div class="pagination-wrapper">
+                <div class="pagination-inner">
+                    <button (click)="prevToBuyPage()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 4L7 12L15 20" stroke="#4A59E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                                               
+                    </button>
+                    <div class="row">
+                        <span [ngStyle]="{'color': toBuyPage == i ? 'white' : ''}" *ngFor="let page of [].constructor(toBuyPages); let i = index">{{i + 1}}</span>
+                    </div>
+                    <button (click)="nextToBuyPage()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 4L16 12L8 20" stroke="#4A59E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>    
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="sell-wrapper container column">
+            <div class="sell-label row">
+                <span>Продать</span>
+                <a [routerLink]="['/history']">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.66663 3.33333V13.0573C2.66663 13.6507 3.38463 13.9487 3.80463 13.5287L7.99996 9.33333L12.1953 13.5287C12.6153 13.9487 13.3333 13.6513 13.3333 13.0573V3.33333C13.3333 2.97971 13.1928 2.64057 12.9428 2.39052C12.6927 2.14048 12.3536 2 12 2H3.99996C3.64634 2 3.3072 2.14048 3.05715 2.39052C2.8071 2.64057 2.66663 2.97971 2.66663 3.33333V3.33333Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    История    
+                </a>
+            </div>
+
+            <div *ngFor="let item of getElementsToSellPerPage()" class="sell-element">
+                <div class="row">
+                    <picture>
+                        <img src="assets/ledius.png" alt="LDS">
+                    </picture>
+                    <span>{{item.costInLDS}} LDS</span>
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.5 2.66667L6.83333 1M8.5 2.66667H1H8.5ZM8.5 2.66667L6.83333 4.33333L8.5 2.66667Z" stroke="#D73D3D" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M1.25 7.49992L2.91667 5.83325M1.25 7.49992H8.75H1.25ZM1.25 7.49992L2.91667 9.16659L1.25 7.49992Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                          
+                </div>
+                <button class="filled">
+                    <div class="sell-element-left">
+                    {{item.costInRUB}} ₽
+                    </div>
+                    <div class="sell-element-right">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 7C2 6.46957 2.21071 5.96086 2.58579 5.58579C2.96086 5.21071 3.46957 5 4 5H20C20.5304 5 21.0391 5.21071 21.4142 5.58579C21.7893 5.96086 22 6.46957 22 7V17C22 17.5304 21.7893 18.0391 21.4142 18.4142C21.0391 18.7893 20.5304 19 20 19H4C3.46957 19 2.96086 18.7893 2.58579 18.4142C2.21071 18.0391 2 17.5304 2 17V7Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 9C3.06087 9 4.07828 8.57857 4.82843 7.82843C5.57857 7.07828 6 6.06087 6 5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M18 19C18 17.9391 18.4214 16.9217 19.1716 16.1716C19.9217 15.4214 20.9391 15 22 15" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                        
+                        Продать          
+                    </div> 
+                </button>     
+            </div>
+
+            <div class="pagination-wrapper">
+                <div class="pagination-inner">
+                    <button (click)="prevToSellPage()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 4L7 12L15 20" stroke="#4A59E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                                               
+                    </button>
+                    <div class="row">
+                        <span [ngStyle]="{'color': toSellPage == i ? 'white' : ''}" *ngFor="let page of [].constructor(toBuyPages); let i = index">{{i + 1}}</span>
+                    </div>
+                    <button (click)="nextToSellPage()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 4L16 12L8 20" stroke="#4A59E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>    
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

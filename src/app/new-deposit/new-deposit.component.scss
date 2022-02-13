@@ -1,0 +1,12 @@
+@import '../variables';
+
+form {
+    button {
+        border-radius: 10px;
+    }
+    input:read-only {
+        background: $backgroundBlackColor;
+        color: $lightFontColor;
+        font-weight: 500;
+    }
+}

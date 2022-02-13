@@ -1,0 +1,177 @@
+@import '../variables';
+
+.profile-info {
+    background: $backgroundBlackColor;
+    padding-top: 19px;
+    padding-bottom: 11px;
+    .line {
+        margin: 9px 0 15px 0;
+    }
+    button {
+        padding: 11px 0 11px 0;
+        font-family: $Montserrat;
+        font-size: 14px;
+        width: 47%;
+        font-weight: 500;
+        svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+        }
+    }
+    .scan-qr {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: fit-content;
+        padding: 0;
+        background: transparent;
+        border: none;
+        svg {
+            min-height: 30px;
+            min-width: 30px;
+            margin: 0;
+        }
+    }
+    .profile-info-left {
+        display: flex;
+        align-items: center;
+        font-family: $Montserrat;
+        picture, img {
+            width: 31px;
+            height: 31px;
+        }
+        .column {
+            margin-left: 14px;
+            span {
+                font-size: 16px;
+            }
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.buy-wrapper, .sell-wrapper {
+    margin-top: 39px;
+    .buy-label, .sell-label {
+        span {
+            font-family: $Montserrat;
+            font-size: 14px;
+        }
+        a {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            font-family: $Montserrat;
+            svg {
+                margin-right: 7px;
+            }
+        }
+    }
+
+    .buy-element, .sell-element {
+        padding: 15px 19px;
+        background: $backgroundBlackColor;
+        border-radius: 10px;
+        margin-top: 15px;
+        .row {
+            align-items: center;
+            justify-content: flex-start;
+            picture {
+                margin-right: 14px;
+                width: 31px;
+                height: 31px;
+                img {
+                    width: 31px;
+                    height: 31px;
+                }
+            }
+            span {
+                font-family: $Montserrat;
+                font-size: 16px;
+                word-break: break-all;
+            }
+            svg {
+                margin: 0 10px;
+                min-height: 10px;
+                min-width: 10px;
+            }
+        }
+        button {
+            margin-top: 15px;
+            width: 100%;
+            height: fit-content;
+            padding: 5px 5px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+            .buy-element-left, .sell-element-left {
+                flex-wrap: nowrap;
+                display: flex;
+                align-items: center;
+                white-space: nowrap;
+                min-height: 27px;
+                padding-right: 25px;
+                border-right: 1px solid $lightFontColor;
+            }
+            .buy-element-right, .sell-element-right {
+                display: flex;
+                padding-left: 25px;
+                align-items: center;
+                justify-content: center;
+                svg {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+.sell-wrapper {
+    margin-top: 0;
+}
+
+.pagination-wrapper {
+    margin-top: 25px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .pagination-inner {
+        display: flex;
+        align-items: center;
+        .row {
+            align-items: center;
+            span {
+                color: $buttonColor;
+                font-family: $Montserrat;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 14px;
+                margin: 0 3.5px;
+            }
+        }
+        button {
+            display: flex;
+            background: transparent;
+            border: none;
+            margin: 0 12px;
+            svg {
+                path {
+                    transition: stroke .2s ease;
+                }
+            }
+            &:active {
+                svg {
+                    path {
+                        stroke: $lightFontColor;
+                    }
+                }
+            }
+        }
+    }
+}
